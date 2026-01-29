@@ -41,6 +41,25 @@ with open("/Users/ismaelcorralalonso/Desktop/archivo.txt", "r", encoding="latin-
     print(f"Hay {len(palabras_cortas)} palabras de menos de 4 caracteres")
     
 
+#Ejercicio 5 modificado 
+
+def contar_palabras_cortas(ruta_archivo, longitud_maxima):
+    try:
+        with open(ruta_archivo, "r", encoding="latin-1") as fichero:
+            texto = fichero.read()
+            palabras = texto.split()
+            palabras_cortas = [palabra for palabra in palabras if len(palabra) < longitud_maxima]
+            return len(palabras_cortas)
+    except FileNotFoundError:
+        print(f"El archivo en la ruta {ruta_archivo} no se encontró.")
+        return 0    
+ruta = "/Users/ismaelcorralalonso/Desktop/archivo.txt"
+longitud = 4
+cantidad = contar_palabras_cortas(ruta, longitud)
+print(f"Hay {cantidad} palabras de menos de {longitud} caracteres en el archivo.")
+
+
+
 #Ejercicio6
 
 with open("/Users/ismaelcorralalonso/Desktop/archivo.txt", "r", encoding="latin-1") as fichero:
